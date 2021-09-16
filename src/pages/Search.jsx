@@ -60,6 +60,7 @@ class Search extends Component {
             <div>
               <p>
                 Resultado de álbuns de:
+                {' '}
                 {foundArtist}
               </p>
               {album.length === 0
@@ -67,7 +68,7 @@ class Search extends Component {
                 : (
                   <ul>
                     {album.map(({ collectionId, collectionName }) => (
-                      <li key="collectionId">
+                      <li key={ collectionId }>
                         <Link
                           data-testid={ `link-to-album-${collectionId}` }
                           to={ `/album/${collectionId}` }
