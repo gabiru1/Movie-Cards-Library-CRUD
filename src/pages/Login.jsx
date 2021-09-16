@@ -21,6 +21,7 @@ class Login extends Component {
   handleKeyDown(event) {
     const keyEnter = 13;
     if (event.keyCode === keyEnter) {
+      console.log(event);
       this.handleChange();
     }
   }
