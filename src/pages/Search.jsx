@@ -66,13 +66,13 @@ class Search extends Component {
                 ? <p>Nenhum álbum foi encontrado</p>
                 : (
                   <ul>
-                    {album.map(({ colectionId, colectionName }) => (
-                      <li key="colectionId">
+                    {album.map(({ collectionId, collectionName }) => (
+                      <li key="collectionId">
                         <Link
                           data-testid={ `link-to-album-${collectionId}` }
-                          to={ `/album/${colectionId}` }
+                          to={ `/album/${collectionId}` }
                         >
-                          {colectionName}
+                          {collectionName}
                         </Link>
                       </li>
                     ))}
