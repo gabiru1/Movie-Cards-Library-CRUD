@@ -63,6 +63,11 @@ class Search extends Component {
               </p>
               {album.length === 0
                 ? <p>Nenhum álbum foi encontrado</p>
+                : (
+                  <ul>
+                    {album.map(({ colectionId }) => )}
+                  </ul>
+                )
               }
             </div>
           )
