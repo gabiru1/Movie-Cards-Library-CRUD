@@ -34,7 +34,7 @@ class Search extends Component {
   }
 
   render() {
-    const { name } = this.state;
+    const { name, searchComplete, loading, album, foundArtist } = this.state;
     const minValueSize = 2;
     return (
       <div data-testid="page-search">
@@ -77,8 +77,7 @@ class Search extends Component {
                       </li>
                     ))}
                   </ul>
-                )
-              }
+                )}
             </div>
           )
           : (
