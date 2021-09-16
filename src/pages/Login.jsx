@@ -18,6 +18,13 @@ class Login extends Component {
     this.setState({ name: value });
   }
 
+  handleKeyDown(event) {
+    const keyEnter = 13;
+    if (event.keyCode === keyEnter) {
+      this.handleChange();
+    }
+  }
+
   signIn = () => {
     const { name } = this.state;
     this.setState({ loading: true });
@@ -40,6 +47,7 @@ class Login extends Component {
           : (
             <div>
               <input
+                onKeyPress={ this.handleKeyDown }
                 value={ name }
                 type="text"
                 data-testid="login-name-input"
