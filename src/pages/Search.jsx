@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import { searchAlbumsAPI } from '../services/searchAlbumsAPI';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 class Search extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Search extends Component {
     };
   }
 
-  findAlbums = () => {
+  seachAlbums = () => {
     const { foundArtist } = this.state;
     this.setState({ loading: true, name: '' });
     searchAlbumsAPI(foundArtist)
@@ -49,7 +50,7 @@ class Search extends Component {
             disabled={ name.length < minValueSize }
             type="button"
             data-testid="search-artist-button"
-            onClick={ this.findAlbums }
+            onClick={ this.seachAlbums }
           >
             Pesquisar
           </button>
@@ -65,7 +66,15 @@ class Search extends Component {
                 ? <p>Nenhum álbum foi encontrado</p>
                 : (
                   <ul>
-                    {album.map(({ colectionId }) => )}
+                    {album.map(({ colectionId, colectionName }) => (
+                      <li key="colectionId">
+                        <Link
+                          data-testid={ `link-to-album-${collectionId}` }
+                          to={ `/album/${colectionId}` }
+                        />
+                        {colectionName}
+                      </li>
+                    ))}
                   </ul>
                 )
               }
