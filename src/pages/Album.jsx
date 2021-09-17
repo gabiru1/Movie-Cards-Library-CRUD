@@ -38,12 +38,8 @@ class Album extends Component {
           )
           : ''}
         {requestEnd
-          ? allMusics.map((music, musicNumber) => {
-            if (musicNumber > 0) {
-              return (<MusicCard music={ music } key={ musicNumber } />);
-            }
-            return '';
-          })
+          ? allMusics.slice(1).map((music, musicNumber) => (
+            <MusicCard music={ music } key={ musicNumber } />))
           : ''}
       </div>
     );
@@ -53,7 +49,7 @@ class Album extends Component {
 Album.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
     }),
   }).isRequired,
 };
