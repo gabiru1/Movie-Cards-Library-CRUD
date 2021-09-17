@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
@@ -48,5 +49,13 @@ class Album extends Component {
     );
   }
 }
+
+Album.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number,
+    }),
+  }).isRequired,
+};
 
 export default Album;
