@@ -19,7 +19,7 @@ class Search extends Component {
   seachAlbums = () => {
     const { foundArtist } = this.state;
     this.setState({ loading: true, name: '' });
-    searchAlbumsAPI(foundArtist)
+    searchAlbumsAPI(foundArtist) // requisição api fake
       .then((data) => { // array de objetos
         this.setState({
           loading: false,
