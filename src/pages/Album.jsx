@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
+import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 
 class Album extends Component {
@@ -34,6 +35,14 @@ class Album extends Component {
               <p data-testid="album-name">{ allMusics[0].collectionName }</p>
             </div>
           )
+          : ''}
+        {requestEnd
+          ? allMusics.map((music, musicNumber) => {
+            if (musicNumber > 0) {
+              return (<MusicCard music={ music } key={ musicNumber } />);
+            }
+            return '';
+          })
           : ''}
       </div>
     );
