@@ -57,7 +57,7 @@ class MusicCard extends Component {
               Favorita
               <input
                 id="favorite-checkbox"
-                data-testid={ `checkbox-music-${trackId}` }
+                data-testid={ `checkbox-music-${trackId}` } /* O requisito pede que o data-testid fique na label, porem nso esta funcionando quando eh colocado no input */
                 type="checkbox"
                 checked={ favorites.some((music) => music.trackId === trackId) }
                 onChange={ this.handleChange }
