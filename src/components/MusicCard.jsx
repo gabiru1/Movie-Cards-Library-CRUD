@@ -53,10 +53,10 @@ class MusicCard extends Component {
         {loading
           ? <Loading />
           : (
-            <label htmlFor="favorite-checkbox">
+            <label htmlFor={ trackId }>
               Favorita
               <input
-                id="favorite-checkbox"
+                id={ trackId }
                 data-testid={ `checkbox-music-${trackId}` } /* O requisito pede que o data-testid fique na label, porem nao esta funcionando quando eh colocado no input */
                 type="checkbox"
                 checked={ favorites.some((music) => music.trackId === trackId) }
