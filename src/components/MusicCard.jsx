@@ -36,7 +36,6 @@ class MusicCard extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { music: { previewUrl, trackName, trackId } } = this.props;
     const { loading, favorites } = this.state;
 

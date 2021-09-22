@@ -16,9 +16,7 @@ class Album extends Component {
 
   componentDidMount() {
     const { match: { params: { id } } } = this.props; // Silveira/Kauan monstros!!!!
-    console.log(this.props);
     getMusics(id).then((musicData) => { // filtra o album clicado
-      console.log(musicData); // array de musicas do album clicado
       this.setState({ allMusics: musicData, requestEnd: true });
     });
   }

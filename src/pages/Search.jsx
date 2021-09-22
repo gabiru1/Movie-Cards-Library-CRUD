@@ -20,7 +20,8 @@ class Search extends Component {
     const { foundArtist } = this.state;
     this.setState({ loading: true, name: '' });
     searchAlbumsAPI(foundArtist) // requisição api fake
-      .then((data) => { // array de objetos
+      .then((data) => { // array de objetos albuns
+        console.log(data);
         this.setState({
           loading: false,
           searchComplete: true,
@@ -67,12 +68,17 @@ class Search extends Component {
                 ? <p>Nenhum álbum foi encontrado</p>
                 : (
                   <ul>
-                    {album.map(({ collectionId, collectionName }) => (
+                    {album.map(({ collectionId, collectionName }, index) => (
                       <li key={ collectionId }>
                         <Link
                           data-testid={ `link-to-album-${collectionId}` }
                           to={ `/album/${collectionId}` }
                         >
+                          <img
+                            src={ album[index].artworkUrl100 }
+                            alt={ collectionName }
+                          />
+                          { console.log(album) }
                           {collectionName}
                         </Link>
                       </li>
