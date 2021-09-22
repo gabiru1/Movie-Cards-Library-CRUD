@@ -12,7 +12,7 @@ class Search extends Component {
       loading: false,
       foundArtist: '',
       name: '',
-      album: [], // recebe um array de objetos
+      albums: [], // recebe um array de objetos, cada objeto é um album
     };
   }
 
@@ -25,7 +25,7 @@ class Search extends Component {
         this.setState({
           loading: false,
           searchComplete: true,
-          album: data, // data = array de objetos contendo os albuns encontrados
+          albums: data, // data = array de objetos contendo os albuns encontrados
         });
       });
   }
@@ -35,7 +35,7 @@ class Search extends Component {
   }
 
   render() {
-    const { name, searchComplete, loading, album, foundArtist } = this.state;
+    const { name, searchComplete, loading, albums, foundArtist } = this.state;
     const minValueSize = 2;
     return (
       <div data-testid="page-search">
@@ -64,21 +64,21 @@ class Search extends Component {
                 {' '}
                 {foundArtist}
               </p>
-              {album.length === 0
+              {albums.length === 0
                 ? <p>Nenhum álbum foi encontrado</p>
                 : (
                   <ul>
-                    {album.map(({ collectionId, collectionName }, index) => (
+                    {albums.map(({ collectionId, collectionName }, index) => (
                       <li key={ collectionId }>
                         <Link
                           data-testid={ `link-to-album-${collectionId}` }
                           to={ `/album/${collectionId}` }
                         >
                           <img
-                            src={ album[index].artworkUrl100 }
+                            src={ albums[index].artworkUrl100 }
                             alt={ collectionName }
                           />
-                          { console.log(album) }
+                          { console.log(albums) }
                           {collectionName}
                         </Link>
                       </li>
