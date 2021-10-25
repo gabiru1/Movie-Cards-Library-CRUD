@@ -21,7 +21,6 @@ class Search extends Component {
     this.setState({ loading: true, name: '' });
     searchAlbumsAPI(foundArtist) // requisição api fake
       .then((data) => { // array de objetos albuns
-        console.log(data);
         this.setState({
           loading: false,
           searchComplete: true,
@@ -78,7 +77,6 @@ class Search extends Component {
                             src={ albums[index].artworkUrl100 }
                             alt={ collectionName }
                           />
-                          { console.log(albums) }
                           {collectionName}
                         </Link>
                       </li>

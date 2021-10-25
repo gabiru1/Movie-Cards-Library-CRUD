@@ -15,7 +15,7 @@ class Album extends Component {
   }
 
   componentDidMount() {
-    const { match: { params: { id } } } = this.props; // Silveira/Kauan monstros!!!!
+    const { match: { params: { id } } } = this.props; // Silveira/Kauan monstros!!!! Me ajudaram nesse requisito
     getMusics(id).then((musicData) => { // filtra o album clicado
       this.setState({ allMusics: musicData, requestEnd: true });
     });
@@ -32,6 +32,7 @@ class Album extends Component {
             <div>
               <p data-testid="artist-name">{ allMusics[0].artistName }</p>
               <p data-testid="album-name">{ allMusics[0].collectionName }</p>
+              <img src={ allMusics[0].artworkUrl100 } alt="album" />
             </div>
           )
           : ''}

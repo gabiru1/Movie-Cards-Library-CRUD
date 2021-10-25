@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends Component {
@@ -17,8 +17,9 @@ class MusicCard extends Component {
     this.fetchFavorites();
   }
 
-  handleChange = ({ target: { checked } }) => {
+  handleChange = ({ target: { checked } }) => { // target = checkbox
     const { music, onChange } = this.props;
+    console.log();
     this.setState({ loading: true });
 
     if (checked) {
